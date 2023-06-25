@@ -7,12 +7,23 @@ export default {
     FormInput,
     StudentList,
   },
+  data() {
+    return {
+      dataSiswa: [],
+    };
+  },
+
+  methods: {
+    infoSiswaHandling(form) {
+      this.dataSiswa.push(form);
+    },
+  },
 };
 </script>
 
 <template>
   <div class="lg:container mx-auto">
-    <FormInput />
-    <StudentList />
+    <FormInput @infoSiswa="infoSiswaHandling" />
+    <StudentList :dataSiswa="dataSiswa" />
   </div>
 </template>
